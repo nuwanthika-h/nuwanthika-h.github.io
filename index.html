@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #1a1a2e;
-            --card-color: rgba(22, 22, 40, 0.7);
-            --primary-color: #a259ff;
-            --secondary-color: #00e5ff;
+            /* --- NEW Neutral & Professional Palette --- */
+            --bg-color: #23272f; /* Dark Slate Blue */
+            --card-color: rgba(50, 56, 70, 0.7); /* Semi-transparent card background */
+            --primary-color: #4a90e2; /* Calm, professional blue accent */
+            --secondary-color: #cccccc; /* Light grey for borders and secondary text */
             --text-color: #e4e4e4;
             --heading-color: #ffffff;
-            --border-glow: rgba(162, 89, 255, 0.5);
+            --border-glow: rgba(74, 144, 226, 0.4); /* Glow effect from the primary blue */
         }
 
         body {
@@ -46,12 +47,14 @@
             left: -10%;
             background-color: var(--primary-color);
             animation-delay: -10s;
+            opacity: 0.5;
         }
 
         body::after {
             bottom: -10%;
             right: -10%;
             background-color: var(--secondary-color);
+            opacity: 0.3;
         }
 
         @keyframes moveAura {
@@ -94,7 +97,7 @@
         .header-text .subtitle {
             font-size: 1.4rem;
             font-weight: 300;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             margin: 0;
         }
 
@@ -139,12 +142,12 @@
             margin-top: 0;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--primary-color);
             display: inline-block;
         }
 
         h3 {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-size: 1.3rem;
             margin-bottom: 8px;
         }
@@ -169,12 +172,12 @@
             content: '⇾';
             position: absolute;
             left: 0;
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-weight: bold;
         }
 
         a {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -205,7 +208,7 @@
 
         .skill-category h4 {
             margin-top: 0;
-            color: var(--secondary-color);
+            color: var(--heading-color);
             font-size: 1.1rem;
             border-bottom: 1px solid var(--primary-color);
             padding-bottom: 10px;
@@ -229,7 +232,7 @@
         .contact-item svg {
             width: 24px;
             height: 24px;
-            fill: var(--secondary-color);
+            fill: var(--primary-color);
         }
 
         footer {
@@ -263,7 +266,7 @@
                 <p class="subtitle">Plant Biotechnology Graduate & Researcher</p>
             </div>
             <div class="header-image">
-                 <img src="https://placehold.co/400x400/a259ff/1a1a2e?text=NH" alt="Nuwanthika Herath" class="profile-pic">
+                 <img src="https://placehold.co/400x400/4a90e2/23272f?text=NH" alt="Nuwanthika Herath" class="profile-pic">
             </div>
         </header>
 
@@ -282,7 +285,7 @@
                     <li><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka </li>
                     <li><strong>Graduation:</strong> 2024 </li>
                     <li><strong>Result:</strong> First Class Honours (GPA: 3.81 / 4.0) </li>
-                    <li><strong>Minors:</strong> Chemistry and Environmental management </li>
+                    <li><strong>Minors:</strong> Chemistry and Environmental Management </li>
                 </ul>
             </section>
 
@@ -290,20 +293,20 @@
                 <h2>Research Experience</h2>
                 <h3>Undergraduate Research Project</h3>
                 <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka </p>
-                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka.  The work involved optimizing the CTAB method for DNA extraction , developing PCR protocols to amplify the nuclear ITS1 region , and using bioinformatics tools such as BioEdit, BLAST, and MEGA for sequence analysis, alignment, and phylogenetic tree construction. </p>
+                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka. The work involved optimizing the CTAB method for DNA extraction , developing PCR protocols to amplify the nuclear ITS1 region , and using bioinformatics tools such as BioEdit, BLAST, and MEGA for sequence analysis, alignment, and phylogenetic tree construction.</p>
             </section>
             
             <section id="publications" class="card">
                  <h2>Publications & Presentations</h2>
                 <h3>Abstract Publications</h3>
                 <ul>
-                    <li>A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, 2025. </li>
-                    <li>A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024. </li>
+                    <li>A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, 2025.</li>
+                    <li>A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024.</li>
                 </ul>
                 <h3>Oral Presentations</h3>
                 <ul>
-                    <li>29th International Forestry and Environment Symposium, 2025. </li>
-                    <li>44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024. </li>
+                    <li>29th International Forestry and Environment Symposium, 2025.</li>
+                    <li>44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024.</li>
                 </ul>
             </section>
 
