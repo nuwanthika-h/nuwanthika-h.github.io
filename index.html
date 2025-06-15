@@ -4,19 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuwanthika Herath | Plant Biotechnology Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS for the abstract and colourful design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff; /* Light, airy background */
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Abstract Background Animation */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #2196f3, #9c27b0, #4caf50, #ffc107, #f44336, #2196f3, #9c27b0, #4caf50, #ffc107, #f44336);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite alternate;
+            z-index: -1;
+            opacity: 0.3; /* Subtle effect */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #a78bfa, #fbcfe8); /* Soft gradient */
+            color: #4a008f; /* Deep purple text */
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            margin-top: 50px;
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: #6a1b9a;
+            font-weight: 500;
+        }
+
+        nav {
+            background: #e0f7fa; /* Very light blue */
+            padding: 1rem 0;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav a {
+            color: #00838f; /* Teal */
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #b2ebf2; /* Light teal */
+            color: #004d40; /* Darker teal */
+        }
+
+        #main-content {
+            background: #ffffff;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #9c27b0; /* Purple accent */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: #9c27b0; /* Purple */
+            border-bottom: 3px dashed #d8a7e0; /* Light purple dashed line */
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .education-item,
+        .research-item,
+        .publication-item {
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .education-item:last-child,
+        .research-item:last-child,
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+
+        h3 {
+            color: #5e35b1; /* Deeper purple */
+            margin-bottom: 8px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        section ul {
+            list-style: square;
+            padding-left: 25px;
+            color: #555;
+        }
+
+        section li {
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f9fbe7; /* Light yellow-green */
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #8bc34a; /* Green accent */
+            transition: transform 0.1s ease-in-out;
+        }
+
+        .skill-category:hover {
+            transform: translateX(3px);
+        }
+
+        .skill-category h4 {
+            margin-top: 0;
+            color: #689f38; /* Darker green */
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            border-bottom: 2px dotted #cddc39;
+            padding-bottom: 8px;
+        }
+
+        #contact {
+            background: #fff3e0; /* Light orange */
+            border-left-color: #ff9800; /* Orange accent */
+        }
+
+        #contact h2 {
+            color: #ff9800;
+            border-bottom-color: #ffe0b2;
+        }
+
+        #contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #contact li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        #contact a {
+            color: #f57c00;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #contact a:hover {
+            color: #e65100;
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 50px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            nav a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
+    <div class="container">
+        <header>
             <h1>Nuwanthika Herath</h1>
             <p>First Class Honours Graduate in Plant Biotechnology</p>
-        </div>
-    </header>
+        </header>
 
-    <nav>
-        <div class="container">
+        <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
@@ -25,129 +281,127 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+        </nav>
+
+        <div id="main-content">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>
+                    A highly motivated and detail-oriented Plant Biotechnology graduate from the University of Sri Jayewardenepura, holding a First Class Honours degree with a GPA of 3.81 out of 4.0. My undergraduate research focused on molecular phylogenetics and comparative morpho-anatomy of <em>Madhuca spp.</em> in Sri Lanka. I am proficient in a wide range of laboratory techniques in molecular biology, plant tissue culture, and bioinformatics, with hands-on experience using tools like BLAST, MEGA, and ImageJ. I am passionate about applying my skills in research and development to contribute to the field of plant science.
+                </p>
+            </section>
+
+            <section id="education">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>BSc. Honours in Plant Biotechnology</h3>
+                    <p><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka</p>
+                    <p><strong>Graduation:</strong> 2024</p>
+                    <p><strong>Result:</strong> First Class Honours</p>
+                    <ul>
+                        <li>Overall GPA: 3.81 / 4.0</li>
+                        <li>Plant Biotechnology Specialization GPA: 3.90</li>
+                        <li>Minors: Chemistry and Environmental Management</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="research">
+                <h2>Research Experience</h2>
+                <div class="research-item">
+                    <h3>Undergraduate Research Project</h3>
+                    <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka</p>
+                    <p><strong>Duration:</strong> August 2023 - April 2024</p>
+                    <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus <em>Madhuca</em> in Sri Lanka, which currently requires floral characteristics for typification. The work involved optimizing the CTAB method for DNA extraction and developing PCR protocols to amplify the nuclear ITS1 region. Bioinformatics tools such as BioEdit and MEGA were used for sequence analysis, alignment, and phylogenetic tree construction.</p>
+                </div>
+            </section>
+
+            <section id="publications">
+                <h2>Publications & Presentations</h2>
+                <div class="publication-item">
+                    <h3>Abstract Publications</h3>
+                    <ul>
+                        <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2025, "Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, pp.17.</li>
+                        <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2024, "A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, pp.40.</li>
+                    </ul>
+                </div>
+                 <div class="publication-item">
+                    <h3>Oral Presentations</h3>
+                    <ul>
+                        <li>Presented at the 29th International Forestry and Environment Symposium, University of Sri Jayewardenepura, Sri Lanka (2025).</li>
+                        <li>Presented at the 44th Annual Sessions of the Institute of Biology, Sri Lanka (2024).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Plant Biotechnology</h4>
+                        <ul>
+                            <li>Plant DNA Extraction (CTAB, Kits)</li>
+                            <li>PCR and Gel Electrophoresis</li>
+                            <li>Recombinant DNA Technology</li>
+                            <li>Plant Tissue Culture Techniques</li>
+                            <li>Southern Blotting</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Bioinformatics</h4>
+                        <ul>
+                            <li>NCBI Tools, BLAST</li>
+                            <li>Sequence Analysis (BioEdit)</li>
+                            <li>Phylogenetic Tree Construction (MEGA, raxmIGUI)</li>
+                            <li>Database Proficiency (UniProtKB)</li>
+                        </ul>
+                    </div>
+                     <div class="skill-category">
+                        <h4>Microbiology</h4>
+                        <ul>
+                            <li>Media Preparation & Sterilization</li>
+                            <li>Bacterial & Fungal Inoculation</li>
+                            <li>Isolation of Microorganisms</li>
+                            <li>Staining Techniques (Simple, Differential)</li>
+                            <li>Mushroom Cultivation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Chemistry</h4>
+                        <ul>
+                            <li>Volumetric & Potentiometric Titrations</li>
+                            <li>Calorimetry & Colorimetry</li>
+                            <li>Organic Synthesis & Purification</li>
+                            <li>Qualitative Inorganic Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Tools</h4>
+                        <ul>
+                            <li>Statistical Software: R, MINITAB</li>
+                            <li>Image Analysis: ImageJ</li>
+                            <li>Microsoft Office Suite</li>
+                            <li>Lab Equipment: PCR Machine, Spectrophotometer</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>I am actively seeking research and development opportunities. Please feel free to get in touch.</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a></li>
+                    <li><strong>Phone:</strong> +94 757204322</li>
+                    <li><strong>Address:</strong> No.18/A, Thalawathura, Muruthagahamula, Kandy, Sri Lanka</li>
+                </ul>
+            </section>
         </div>
-    </nav>
 
-    <div class="container" id="main-content">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                A highly motivated and detail-oriented Plant Biotechnology graduate from the University of Sri Jayewardenepura, holding a First Class Honours degree with a GPA of 3.81 out of 4.0. My undergraduate research focused on molecular phylogenetics and comparative morpho-anatomy of *Madhuca spp.* in Sri Lanka. I am proficient in a wide range of laboratory techniques in molecular biology, plant tissue culture, and bioinformatics, with hands-on experience using tools like BLAST, MEGA, and ImageJ. I am passionate about applying my skills in research and development to contribute to the field of plant science.
-            </p>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>BSc. Honours in Plant Biotechnology</h3>
-                <p><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka </p>
-                <p><strong>Graduation:</strong> 2024 </p>
-                <p><strong>Result:</strong> First Class Honours </p>
-                <ul>
-                    <li>Overall GPA: 3.81 / 4.0 </li>
-                    <li>Plant Biotechnology Specialization GPA: 3.90 </li>
-                    <li>Minors: Chemistry and Environmental Management </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2>Research Experience</h2>
-            <div class="research-item">
-                <h3>Undergraduate Research Project</h3>
-                <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka </p>
-                <p><strong>Duration:</strong> August 2023 - April 2024 </p>
-                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka, which currently requires floral characteristics for typification. The work involved optimizing the CTAB method for DNA extraction and developing PCR protocols to amplify the nuclear ITS1 region. Bioinformatics tools such as BioEdit and MEGA were used for sequence analysis, alignment, and phylogenetic tree construction.</p>
-            </div>
-        </section>
-
-        <section id="publications">
-            <h2>Publications & Presentations</h2>
-            <div class="publication-item">
-                <h3>Abstract Publications</h3>
-                <ul>
-                    <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2025, "Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, pp.17. </li>
-                    <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2024, "A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, pp.40. </li>
-                </ul>
-            </div>
-             <div class="publication-item">
-                <h3>Oral Presentations</h3>
-                <ul>
-                    <li>Presented at the 29th International Forestry and Environment Symposium, University of Sri Jayewardenepura, Sri Lanka (2025). </li>
-                    <li>Presented at the 44th Annual Sessions of the Institute of Biology, Sri Lanka (2024). </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Plant Biotechnology</h4>
-                    <ul>
-                        <li>Plant DNA Extraction (CTAB, Kits) </li>
-                        <li>PCR and Gel Electrophoresis </li>
-                        <li>Recombinant DNA Technology </li>
-                        <li>Plant Tissue Culture Techniques </li>
-                        <li>Southern Blotting </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Bioinformatics</h4>
-                    <ul>
-                        <li>NCBI Tools, BLAST </li>
-                        <li>Sequence Analysis (BioEdit) </li>
-                        <li>Phylogenetic Tree Construction (MEGA, raxmIGUI) </li>
-                        <li>Database Proficiency (UniProtKB) </li>
-                    </ul>
-                </div>
-                 <div class="skill-category">
-                    <h4>Microbiology</h4>
-                    <ul>
-                        <li>Media Preparation & Sterilization </li>
-                        <li>Bacterial & Fungal Inoculation </li>
-                        <li>Isolation of Microorganisms </li>
-                        <li>Staining Techniques (Simple, Differential) </li>
-                        <li>Mushroom Cultivation </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Chemistry</h4>
-                    <ul>
-                        <li>Volumetric & Potentiometric Titrations </li>
-                        <li>Calorimetry & Colorimetry </li>
-                        <li>Organic Synthesis & Purification </li>
-                        <li>Qualitative Inorganic Analysis </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Technical Tools</h4>
-                    <ul>
-                        <li>Statistical Software: R, MINITAB </li>
-                        <li>Image Analysis: ImageJ </li>
-                        <li>Microsoft Office Suite </li>
-                        <li>Lab Equipment: PCR Machine, Spectrophotometer </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>I am actively seeking research and development opportunities. Please feel free to get in touch.</p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a> </li>
-                <li><strong>Phone:</strong> +94 757204322 </li>
-                <li><strong>Address:</strong> No.18/A, Thalawathura, Muruthagahamula, Kandy, Sri Lanka </li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <div class="container">
+        <footer>
             <p>&copy; 2025 Nuwanthika Herath. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
 </body>
 </html>
