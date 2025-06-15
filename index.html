@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- NEW Neutral & Professional Palette --- */
-            --bg-color: #23272f; /* Dark Slate Blue */
-            --card-color: rgba(50, 56, 70, 0.7); /* Semi-transparent card background */
-            --primary-color: #4a90e2; /* Calm, professional blue accent */
-            --secondary-color: #cccccc; /* Light grey for borders and secondary text */
-            --text-color: #e4e4e4;
-            --heading-color: #ffffff;
-            --border-glow: rgba(74, 144, 226, 0.4); /* Glow effect from the primary blue */
+            /* --- Light & Professional Palette --- */
+            --bg-color: #f4f7f9; /* Soft off-white background */
+            --card-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white card */
+            --primary-color: #0056b3; /* A deeper, more corporate blue */
+            --secondary-color: #555555; /* Dark grey for secondary text */
+            --text-color: #333333; /* Main text color */
+            --heading-color: #111111; /* Heading color */
+            --shadow-color: rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
         }
 
         body {
@@ -40,21 +40,20 @@
             filter: blur(150px);
             z-index: -1;
             animation: moveAura 20s infinite alternate;
+            opacity: 0.3;
         }
 
         body::before {
             top: -10%;
             left: -10%;
-            background-color: var(--primary-color);
+            background-color: #a7c7e7; /* Light Steel Blue */
             animation-delay: -10s;
-            opacity: 0.5;
         }
 
         body::after {
             bottom: -10%;
             right: -10%;
-            background-color: var(--secondary-color);
-            opacity: 0.3;
+            background-color: #e0e0e0; /* Light Grey */
         }
 
         @keyframes moveAura {
@@ -91,7 +90,6 @@
             font-weight: 700;
             margin: 0 0 10px;
             line-height: 1.2;
-            text-shadow: 0 0 15px var(--border-glow);
         }
 
         .header-text .subtitle {
@@ -113,8 +111,8 @@
             height: 220px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--card-color);
-            box-shadow: 0 0 25px var(--border-glow), inset 0 0 15px rgba(0,0,0,0.5);
+            border: 5px solid #ffffff;
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
 
         /* --- Main Content Cards --- */
@@ -123,27 +121,41 @@
             padding: 35px;
             margin-bottom: 40px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 0 40px var(--border-glow);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Section Header with Icon */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color);
         }
 
         h2 {
             color: var(--heading-color);
             font-size: 2rem;
             font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--primary-color);
-            display: inline-block;
+            margin: 0;
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         h3 {
@@ -153,7 +165,7 @@
         }
 
         strong {
-            color: var(--text-color);
+            color: var(--heading-color);
             font-weight: 600;
         }
 
@@ -179,11 +191,12 @@
         a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--heading-color);
+            color: #003d82; /* Darker blue on hover */
             text-decoration: underline;
         }
 
@@ -195,15 +208,15 @@
         }
 
         .skill-category {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.5);
             padding: 20px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: background-color 0.3s ease;
         }
 
         .skill-category:hover {
-             background: rgba(0, 0, 0, 0.4);
+             background: #ffffff;
         }
 
         .skill-category h4 {
@@ -219,7 +232,7 @@
         }
          .skill-category li::before {
             content: '✓';
-            color: var(--text-color);
+            color: var(--secondary-color);
          }
 
         /* --- Contact Section --- */
@@ -234,11 +247,16 @@
             height: 24px;
             fill: var(--primary-color);
         }
+        
+        #about p {
+            margin-bottom: 1.2em;
+            font-size: 1.05rem;
+        }
 
         footer {
             text-align: center;
             padding: 30px;
-            color: rgba(255, 255, 255, 0.5);
+            color: #777777;
         }
 
         /* --- Responsive Design --- */
@@ -266,38 +284,59 @@
                 <p class="subtitle">Plant Biotechnology Graduate & Researcher</p>
             </div>
             <div class="header-image">
-                 <img src="https://placehold.co/400x400/4a90e2/23272f?text=NH" alt="Nuwanthika Herath" class="profile-pic">
+                 <img src="https://placehold.co/400x400/0056b3/f4f7f9?text=NH" alt="Nuwanthika Herath" class="profile-pic">
             </div>
         </header>
 
         <main>
             <section id="about" class="card">
-                <h2>About Me</h2>
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <h2>About Me</h2>
+                </div>
                 <p>
-                    A highly motivated and detail-oriented Plant Biotechnology graduate from the University of Sri Jayewardenepura, holding a First Class Honours degree with a GPA of 3.81 out of 4.0. My undergraduate research focused on molecular phylogenetics and comparative morpho-anatomy of <em>Madhuca spp.</em> in Sri Lanka. I am proficient in a wide range of laboratory techniques in molecular biology, plant tissue culture, and bioinformatics, with hands-on experience using tools like BLAST, MEGA, and ImageJ. I am passionate about applying my skills in research and development to contribute to the field of plant science.
+                    A highly motivated and detail-oriented <strong>Plant Biotechnology</strong> graduate from the University of Sri Jayewardenepura, achieving a <strong>First Class Honours</strong> degree with an outstanding <strong>GPA of 3.81</strong> out of 4.0.
+                </p>
+                <p>
+                    My undergraduate research focused on the <strong><em>molecular phylogenetics and comparative morpho-anatomy of </em></strong><em>Madhuca spp.</em> in Sri Lanka.
+                </p>
+                <p>
+                    I am proficient in a wide range of laboratory techniques in molecular biology, plant tissue culture, and bioinformatics, with hands-on experience using tools like <strong>BLAST, MEGA, and ImageJ</strong>.
+                </p>
+                <p>
+                    <em>I am passionate about applying my skills in research and development to contribute to the field of plant science.</em>
                 </p>
             </section>
 
             <section id="education" class="card">
-                <h2>Education</h2>
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                    <h2>Education</h2>
+                </div>
                 <h3>BSc. Honours in Plant Biotechnology</h3>
                 <ul>
-                    <li><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka </li>
-                    <li><strong>Graduation:</strong> 2024 </li>
-                    <li><strong>Result:</strong> First Class Honours (GPA: 3.81 / 4.0) </li>
-                    <li><strong>Minors:</strong> Chemistry and Environmental Management </li>
+                    <li><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka</li>
+                    <li><strong>Graduation:</strong> 2024</li>
+                    <li><strong>Result:</strong> First Class Honours (GPA: 3.81 / 4.0)</li>
+                    <li><strong>Minors:</strong> Chemistry and Environmental Management</li>
                 </ul>
             </section>
 
             <section id="research" class="card">
-                <h2>Research Experience</h2>
+                 <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <h2>Research Experience</h2>
+                </div>
                 <h3>Undergraduate Research Project</h3>
-                <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka </p>
-                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka. The work involved optimizing the CTAB method for DNA extraction , developing PCR protocols to amplify the nuclear ITS1 region , and using bioinformatics tools such as BioEdit, BLAST, and MEGA for sequence analysis, alignment, and phylogenetic tree construction.</p>
+                <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka</p>
+                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka. The work involved optimizing the CTAB method for DNA extraction, developing PCR protocols to amplify the nuclear ITS1 region, and using bioinformatics tools such as BioEdit, BLAST, and MEGA for sequence analysis, alignment, and phylogenetic tree construction.</p>
             </section>
             
             <section id="publications" class="card">
-                 <h2>Publications & Presentations</h2>
+                 <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <h2>Publications & Presentations</h2>
+                </div>
                 <h3>Abstract Publications</h3>
                 <ul>
                     <li>A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, 2025.</li>
@@ -311,53 +350,59 @@
             </section>
 
             <section id="skills" class="card">
-                <h2>Skills</h2>
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.36 6l.08.39.32 1.61H18v2h-3.36l-.32 1.61-.08.39-.32 1.61H18v2h-3.36l-.32 1.61-.08.39-.32 1.61H6v-2h3.36l.32-1.61.08-.39.32-1.61H6v-2h3.36l.32-1.61.08-.39.32-1.61H6V6h6.36z"/></svg>
+                    <h2>Skills</h2>
+                </div>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h4>Plant Biotechnology</h4>
                         <ul>
-                            <li>Plant DNA Extraction & PCR </li>
-                            <li>Recombinant DNA Technology </li>
-                            <li>Plant Tissue Culture </li>
-                            <li>Southern Blotting </li>
+                            <li>Plant DNA Extraction & PCR</li>
+                            <li>Recombinant DNA Technology</li>
+                            <li>Plant Tissue Culture</li>
+                            <li>Southern Blotting</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h4>Bioinformatics</h4>
                         <ul>
-                            <li>NCBI Tools & BLAST </li>
-                            <li>Sequence Analysis (BioEdit) </li>
-                            <li>Phylogenetic Analysis (MEGA) </li>
-                            <li>ImageJ Analysis </li>
+                            <li>NCBI Tools & BLAST</li>
+                            <li>Sequence Analysis (BioEdit)</li>
+                            <li>Phylogenetic Analysis (MEGA)</li>
+                            <li>ImageJ Analysis</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h4>Microbiology</h4>
                         <ul>
-                            <li>Culture & Isolation Techniques </li>
-                            <li>Staining & Identification </li>
-                            <li>Fermentation Technology </li>
-                            <li>Diagnosis of Plant Pathogens </li>
+                            <li>Culture & Isolation Techniques</li>
+                            <li>Staining & Identification</li>
+                            <li>Fermentation Technology</li>
+                            <li>Diagnosis of Plant Pathogens</li>
                         </ul>
                     </div>
                 </div>
             </section>
             
             <section id="contact" class="card">
-                <h2>Contact</h2>
+                <div class="section-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                    <h2>Contact</h2>
+                </div>
                 <p>I am actively seeking research and development opportunities. Please feel free to get in touch.</p>
                 <ul>
                     <li class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a> 
+                        <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a>
                     </li>
                     <li class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.02l-2.2 2.2z"/></svg>
-                        <span>+94 757204322</span> 
+                        <span>+94 757204322</span>
                     </li>
                      <li class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        <span>Kandy, Sri Lanka</span> 
+                        <span>Kandy, Sri Lanka</span>
                     </li>
                 </ul>
             </section>
