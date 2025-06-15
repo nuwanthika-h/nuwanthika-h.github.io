@@ -3,263 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuwanthika Herath | Plant Biotechnology Portfolio</title>
+    <title>Nuwanthika Herath | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS for the abstract and colourful design */
+        :root {
+            --bg-color: #1a1a2e;
+            --card-color: rgba(22, 22, 40, 0.7);
+            --primary-color: #a259ff;
+            --secondary-color: #00e5ff;
+            --text-color: #e4e4e4;
+            --heading-color: #ffffff;
+            --border-glow: rgba(162, 89, 255, 0.5);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background: #f0f8ff; /* Light, airy background */
-            color: #333;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Abstract Background Animation */
-        body::before {
-            content: "";
+        /* Abstract "Aura" Background */
+        body::before, body::after {
+            content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, #2196f3, #9c27b0, #4caf50, #ffc107, #f44336, #2196f3, #9c27b0, #4caf50, #ffc107, #f44336);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s infinite alternate;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(150px);
             z-index: -1;
-            opacity: 0.3; /* Subtle effect */
+            animation: moveAura 20s infinite alternate;
         }
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        body::before {
+            top: -10%;
+            left: -10%;
+            background-color: var(--primary-color);
+            animation-delay: -10s;
+        }
+
+        body::after {
+            bottom: -10%;
+            right: -10%;
+            background-color: var(--secondary-color);
+        }
+
+        @keyframes moveAura {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, 50px) scale(1.2); }
+            100% { transform: translate(-50px, -100px) scale(1); }
         }
 
         .container {
-            width: 85%;
-            max-width: 1200px;
+            width: 90%;
+            max-width: 1100px;
             margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
+            padding: 40px 0;
         }
 
-        header {
-            background: linear-gradient(135deg, #a78bfa, #fbcfe8); /* Soft gradient */
-            color: #4a008f; /* Deep purple text */
-            padding: 3rem 0;
-            text-align: center;
-            border-radius: 15px 15px 0 0;
-            margin-top: 50px;
+        /* --- Header Section --- */
+        .header-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 0;
+            flex-wrap: wrap;
         }
 
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 3rem;
+        .header-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .header-text h1 {
+            color: var(--heading-color);
+            font-size: 3.5rem;
             font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 0 10px;
+            line-height: 1.2;
+            text-shadow: 0 0 15px var(--border-glow);
         }
 
-        header p {
-            font-size: 1.3rem;
-            color: #6a1b9a;
-            font-weight: 500;
-        }
-
-        nav {
-            background: #e0f7fa; /* Very light blue */
-            padding: 1rem 0;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        nav ul {
-            padding: 0;
+        .header-text .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--secondary-color);
             margin: 0;
-            list-style: none;
-            text-align: center;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
+        .header-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        nav a {
-            color: #00838f; /* Teal */
-            text-decoration: none;
-            font-size: 1.15rem;
-            font-weight: 600;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--card-color);
+            box-shadow: 0 0 25px var(--border-glow), inset 0 0 15px rgba(0,0,0,0.5);
         }
 
-        nav a:hover {
-            background-color: #b2ebf2; /* Light teal */
-            color: #004d40; /* Darker teal */
+        /* --- Main Content Cards --- */
+        .card {
+            background: var(--card-color);
+            padding: 35px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        #main-content {
-            background: #ffffff;
-            padding: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        section {
-            padding: 25px;
-            margin-bottom: 30px;
-            border-left: 5px solid #9c27b0; /* Purple accent */
-            transition: transform 0.2s ease-in-out;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px var(--border-glow);
         }
 
         h2 {
-            color: #9c27b0; /* Purple */
-            border-bottom: 3px dashed #d8a7e0; /* Light purple dashed line */
+            color: var(--heading-color);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 30px;
             padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-
-        .education-item,
-        .research-item,
-        .publication-item {
-            margin-bottom: 25px;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .education-item:last-child,
-        .research-item:last-child,
-        .publication-item:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid var(--secondary-color);
+            display: inline-block;
         }
 
         h3 {
-            color: #5e35b1; /* Deeper purple */
+            color: var(--secondary-color);
+            font-size: 1.3rem;
             margin-bottom: 8px;
-            font-size: 1.5rem;
+        }
+
+        strong {
+            color: var(--text-color);
             font-weight: 600;
         }
 
-        section ul {
-            list-style: square;
-            padding-left: 25px;
-            color: #555;
+        ul {
+            list-style: none;
+            padding-left: 0;
         }
 
-        section li {
+        li {
             margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
         }
 
+        li::before {
+            content: '⇾';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--heading-color);
+            text-decoration: underline;
+        }
+
+        /* --- Skills Grid --- */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
 
         .skill-category {
-            background: #f9fbe7; /* Light yellow-green */
+            background: rgba(0, 0, 0, 0.2);
             padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid #8bc34a; /* Green accent */
-            transition: transform 0.1s ease-in-out;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background-color 0.3s ease;
         }
 
         .skill-category:hover {
-            transform: translateX(3px);
+             background: rgba(0, 0, 0, 0.4);
         }
 
         .skill-category h4 {
             margin-top: 0;
-            color: #689f38; /* Darker green */
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            border-bottom: 2px dotted #cddc39;
-            padding-bottom: 8px;
-        }
-
-        #contact {
-            background: #fff3e0; /* Light orange */
-            border-left-color: #ff9800; /* Orange accent */
-        }
-
-        #contact h2 {
-            color: #ff9800;
-            border-bottom-color: #ffe0b2;
-        }
-
-        #contact ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #contact li {
-            margin-bottom: 12px;
+            color: var(--secondary-color);
             font-size: 1.1rem;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
-
-        #contact a {
-            color: #f57c00;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        .skill-category ul {
+            padding-left: 0;
         }
+         .skill-category li::before {
+            content: '✓';
+            color: var(--text-color);
+         }
 
-        #contact a:hover {
-            color: #e65100;
-            text-decoration: underline;
+        /* --- Contact Section --- */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--secondary-color);
         }
 
         footer {
-            background: #333;
-            color: #fff;
             text-align: center;
-            padding: 2rem 0;
-            margin-bottom: 50px;
-            border-radius: 0 0 15px 15px;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Responsive adjustments */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                margin-top: 30px;
-                margin-bottom: 30px;
+            .header-section {
+                flex-direction: column;
+                text-align: center;
             }
-
-            header h1 {
-                font-size: 2.5rem;
+            .header-text h1 {
+                font-size: 2.8rem;
             }
-
-            header p {
-                font-size: 1.2rem;
-            }
-
-            nav ul li {
-                margin: 0 10px;
-            }
-
-            nav a {
-                font-size: 1rem;
-                padding: 8px 12px;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .profile-pic {
+                width: 180px;
+                height: 180px;
             }
         }
     </style>
@@ -267,136 +257,108 @@
 <body>
 
     <div class="container">
-        <header>
-            <h1>Nuwanthika Herath</h1>
-            <p>First Class Honours Graduate in Plant Biotechnology</p>
+        <header class="header-section">
+            <div class="header-text">
+                <h1>Nuwanthika Herath</h1>
+                <p class="subtitle">Plant Biotechnology Graduate & Researcher</p>
+            </div>
+            <div class="header-image">
+                 <img src="https://placehold.co/400x400/a259ff/1a1a2e?text=NH" alt="Nuwanthika Herath" class="profile-pic">
+            </div>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div id="main-content">
-            <section id="about">
+        <main>
+            <section id="about" class="card">
                 <h2>About Me</h2>
                 <p>
                     A highly motivated and detail-oriented Plant Biotechnology graduate from the University of Sri Jayewardenepura, holding a First Class Honours degree with a GPA of 3.81 out of 4.0. My undergraduate research focused on molecular phylogenetics and comparative morpho-anatomy of <em>Madhuca spp.</em> in Sri Lanka. I am proficient in a wide range of laboratory techniques in molecular biology, plant tissue culture, and bioinformatics, with hands-on experience using tools like BLAST, MEGA, and ImageJ. I am passionate about applying my skills in research and development to contribute to the field of plant science.
                 </p>
             </section>
 
-            <section id="education">
+            <section id="education" class="card">
                 <h2>Education</h2>
-                <div class="education-item">
-                    <h3>BSc. Honours in Plant Biotechnology</h3>
-                    <p><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka</p>
-                    <p><strong>Graduation:</strong> 2024</p>
-                    <p><strong>Result:</strong> First Class Honours</p>
-                    <ul>
-                        <li>Overall GPA: 3.81 / 4.0</li>
-                        <li>Plant Biotechnology Specialization GPA: 3.90</li>
-                        <li>Minors: Chemistry and Environmental Management</li>
-                    </ul>
-                </div>
+                <h3>BSc. Honours in Plant Biotechnology</h3>
+                <ul>
+                    <li><strong>Institution:</strong> University of Sri Jayewardenepura, Sri Lanka </li>
+                    <li><strong>Graduation:</strong> 2024 </li>
+                    <li><strong>Result:</strong> First Class Honours (GPA: 3.81 / 4.0) </li>
+                    <li><strong>Minors:</strong> Chemistry and Environmental management </li>
+                </ul>
             </section>
 
-            <section id="research">
+            <section id="research" class="card">
                 <h2>Research Experience</h2>
-                <div class="research-item">
-                    <h3>Undergraduate Research Project</h3>
-                    <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka</p>
-                    <p><strong>Duration:</strong> August 2023 - April 2024</p>
-                    <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus <em>Madhuca</em> in Sri Lanka, which currently requires floral characteristics for typification. The work involved optimizing the CTAB method for DNA extraction and developing PCR protocols to amplify the nuclear ITS1 region. Bioinformatics tools such as BioEdit and MEGA were used for sequence analysis, alignment, and phylogenetic tree construction.</p>
-                </div>
+                <h3>Undergraduate Research Project</h3>
+                <p><strong>Title:</strong> A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka </p>
+                <p><strong>Description:</strong> This study addressed the research gap in the morphology, anatomy, and molecular characterization of the genus *Madhuca* in Sri Lanka.  The work involved optimizing the CTAB method for DNA extraction , developing PCR protocols to amplify the nuclear ITS1 region , and using bioinformatics tools such as BioEdit, BLAST, and MEGA for sequence analysis, alignment, and phylogenetic tree construction. </p>
+            </section>
+            
+            <section id="publications" class="card">
+                 <h2>Publications & Presentations</h2>
+                <h3>Abstract Publications</h3>
+                <ul>
+                    <li>A Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, 2025. </li>
+                    <li>A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024. </li>
+                </ul>
+                <h3>Oral Presentations</h3>
+                <ul>
+                    <li>29th International Forestry and Environment Symposium, 2025. </li>
+                    <li>44th Annual Sessions of the Institute of Biology, Sri Lanka, 2024. </li>
+                </ul>
             </section>
 
-            <section id="publications">
-                <h2>Publications & Presentations</h2>
-                <div class="publication-item">
-                    <h3>Abstract Publications</h3>
-                    <ul>
-                        <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2025, "Molecular Phylogenetic and Comparative Morpho-Anatomical Study on Some Selected Madhuca Spp. (Sapotaceae) in Sri Lanka" 29th International Forestry and Environment Symposium, pp.17.</li>
-                        <li>Herath, H.M.N.D., Jayasinghe, H.D. and Kariyawasam, I.U., 2024, "A Molecular Phylogenetic Study on Some Selected Madhuca spp. (Sapotaceae) in Sri Lanka." 44th Annual Sessions of the Institute of Biology, Sri Lanka, pp.40.</li>
-                    </ul>
-                </div>
-                 <div class="publication-item">
-                    <h3>Oral Presentations</h3>
-                    <ul>
-                        <li>Presented at the 29th International Forestry and Environment Symposium, University of Sri Jayewardenepura, Sri Lanka (2025).</li>
-                        <li>Presented at the 44th Annual Sessions of the Institute of Biology, Sri Lanka (2024).</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="skills">
+            <section id="skills" class="card">
                 <h2>Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h4>Plant Biotechnology</h4>
                         <ul>
-                            <li>Plant DNA Extraction (CTAB, Kits)</li>
-                            <li>PCR and Gel Electrophoresis</li>
-                            <li>Recombinant DNA Technology</li>
-                            <li>Plant Tissue Culture Techniques</li>
-                            <li>Southern Blotting</li>
+                            <li>Plant DNA Extraction & PCR </li>
+                            <li>Recombinant DNA Technology </li>
+                            <li>Plant Tissue Culture </li>
+                            <li>Southern Blotting </li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h4>Bioinformatics</h4>
                         <ul>
-                            <li>NCBI Tools, BLAST</li>
-                            <li>Sequence Analysis (BioEdit)</li>
-                            <li>Phylogenetic Tree Construction (MEGA, raxmIGUI)</li>
-                            <li>Database Proficiency (UniProtKB)</li>
+                            <li>NCBI Tools & BLAST </li>
+                            <li>Sequence Analysis (BioEdit) </li>
+                            <li>Phylogenetic Analysis (MEGA) </li>
+                            <li>ImageJ Analysis </li>
                         </ul>
                     </div>
-                     <div class="skill-category">
+                    <div class="skill-category">
                         <h4>Microbiology</h4>
                         <ul>
-                            <li>Media Preparation & Sterilization</li>
-                            <li>Bacterial & Fungal Inoculation</li>
-                            <li>Isolation of Microorganisms</li>
-                            <li>Staining Techniques (Simple, Differential)</li>
-                            <li>Mushroom Cultivation</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Chemistry</h4>
-                        <ul>
-                            <li>Volumetric & Potentiometric Titrations</li>
-                            <li>Calorimetry & Colorimetry</li>
-                            <li>Organic Synthesis & Purification</li>
-                            <li>Qualitative Inorganic Analysis</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Technical Tools</h4>
-                        <ul>
-                            <li>Statistical Software: R, MINITAB</li>
-                            <li>Image Analysis: ImageJ</li>
-                            <li>Microsoft Office Suite</li>
-                            <li>Lab Equipment: PCR Machine, Spectrophotometer</li>
+                            <li>Culture & Isolation Techniques </li>
+                            <li>Staining & Identification </li>
+                            <li>Fermentation Technology </li>
+                            <li>Diagnosis of Plant Pathogens </li>
                         </ul>
                     </div>
                 </div>
             </section>
-
-            <section id="contact">
+            
+            <section id="contact" class="card">
                 <h2>Contact</h2>
                 <p>I am actively seeking research and development opportunities. Please feel free to get in touch.</p>
                 <ul>
-                    <li><strong>Email:</strong> <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a></li>
-                    <li><strong>Phone:</strong> +94 757204322</li>
-                    <li><strong>Address:</strong> No.18/A, Thalawathura, Muruthagahamula, Kandy, Sri Lanka</li>
+                    <li class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <a href="mailto:hmnuwanthikadarshani@gmail.com">hmnuwanthikadarshani@gmail.com</a> 
+                    </li>
+                    <li class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.23 1.02l-2.2 2.2z"/></svg>
+                        <span>+94 757204322</span> 
+                    </li>
+                     <li class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Kandy, Sri Lanka</span> 
+                    </li>
                 </ul>
             </section>
-        </div>
+        </main>
 
         <footer>
             <p>&copy; 2025 Nuwanthika Herath. All Rights Reserved.</p>
